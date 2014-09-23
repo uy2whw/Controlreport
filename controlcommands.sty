@@ -1,0 +1,44 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{controlcommands}[2014/06/29]
+
+\RequirePackage{amsfonts}
+\RequirePackage[boxed]{algorithm2e}
+
+\ProcessOptions\relax
+
+%derivatives
+\newcommand{\der}[2]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\dert}[1]{\der{#1}{t}}
+\newcommand{\derts}{\dert{}}
+
+%operators
+\newcommand{\op}[2]{\mathrm{#1}\!\left\{ #2 \right\}}
+\newcommand{\cov}[1]{\mathrm{cov}\!\left\{ #1 \right\}}
+\newcommand{\expected}[1]{\mathbb{E}\!\left\{ #1 \right\}}
+\renewcommand{\dim}[1]{\mathrm{dim}\!\left\{ #1 \right\}}
+\newcommand{\sign}[1]{\mathrm{sign}\!\left\{ #1 \right\}}
+\newcommand{\rank}[1]{\mathrm{rank}\!\left\{ #1 \right\}}
+
+%citation
+\newcommand{\citet}[1]{\citeauthor{#1} (\citeyear{#1})}
+\newcommand{\citep}[1]{(\citeauthor{#1}, \citeyear{#1})}
+
+%algorithm
+\SetAlCapSkip{0.4 cm}
+\renewcommand\AlCapFnt{\normalfont}
+
+\newenvironment{controlalgo}[1]{
+\begin{center}
+\begin{minipage}{#1}
+\begin{algorithm}[H]
+	\belowdisplayskip=0.1cm
+	\abovedisplayskip=0.1cm
+	\Indm
+}{
+\end{algorithm}
+\end{minipage}
+\end{center}
+}
+
+\endinput
+\AtEndOfPackage

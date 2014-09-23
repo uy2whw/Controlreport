@@ -1,0 +1,37 @@
+\providecommand{\thetitle}{Use the \texttt{$\backslash$title} command to specify document title}
+\providecommand{\thedoctype}{Use the \texttt{$\backslash$doctype} command to specify document type}
+\providecommand{\theuniversity}{Use the \texttt{$\backslash$university} command to specify the university}
+\providecommand{\thefaculty}{Use the \texttt{$\backslash$faculty} command to specify the faculty}
+\providecommand{\thedepartment}{Use the \texttt{$\backslash$department} command to specify the department}
+\providecommand{\thedate}{\today}
+\providecommand{\thelogo}{bmelogo.eps}
+\providecommand{\theauthorinfo}{Use the \texttt{$\backslash$authorinfo} command to specify author information}
+
+\thispagestyle{empty}
+\begin{figure}[t]
+\centering
+\includegraphics[width=200pt, keepaspectratio, page=1]{\thelogo}
+\end{figure}
+
+\begin{center}
+\textbf{\theuniversity}\\
+\textmd{\thefaculty}\\
+\textmd{\thedepartment}
+\vspace{3 cm}
+\begin{center}
+\Huge \bfseries \thetitle
+\end{center}
+
+\vspace{2 cm} %3
+
+\textsc{\Large{\thedoctype}}
+
+\vspace{3.5 cm}
+
+\begin{center}
+\theauthorinfo
+\end{center}
+
+\vfill
+\thedate
+\end{center}
