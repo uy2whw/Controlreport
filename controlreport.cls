@@ -24,6 +24,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{graphicx}
 \RequirePackage{suffix}
+\RequirePackage[style = alphabetic]{biblatex}
 
 %document geometry
 \setlength{\headsep}{1 cm} %1.3cm
@@ -50,7 +51,7 @@
 \renewcommand{\date}[1]{\renewcommand{\thedate}{#1}}
 \newcommand{\logo}[1]{\newcommand{\thelogo}{#1}}
 \newcommand{\authorinfo}[1]{\newcommand{\theauthorinfo}{#1}}
-\renewcommand{\titlepage}{
+\newcommand{\printtitlepage}{
 \input{titlepage}
 }
 
@@ -82,6 +83,16 @@
 	\tableofcontents
 \endgroup
 \setcounter{page}{0}
+}
+
+%bibliography
+\newcommand{\bibtitle}{Bibliography}
+\newcommand{\bib}{
+	\begingroup
+		\renewcommand{\chapter}[2]{}
+		\chapter*{\bibtitle}
+		\printbibliography
+	\endgroup
 }
 
 %sectioning
