@@ -23,7 +23,7 @@
 \RequirePackage[lmargin=3cm, rmargin=3cm, bottom=2.5cm, bindingoffset=0cm]{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{graphicx}
-%\RequirePackage[boxed]{algorithm2e}
+\RequirePackage{suffix}
 
 %document geometry
 \setlength{\headsep}{1 cm} %1.3cm
@@ -85,29 +85,56 @@
 }
 
 %sectioning
-\renewcommand{\chapter}[1]{
-\begingroup
-	\newpage
+\renewcommand\chapter[1]{\chapternostar{#1}}
+\WithSuffix\newcommand\chapter*[1]{\chapterstar{#1}}
+
+\newcommand{\chapternostar}[1]{
 	\refstepcounter{mychapter}
-	\thispagestyle{empty}
-	\vspace*{-2\headsep}
-	\setlength{\parskip}{0cm}
-	\flushright	
 	\begingroup
-		\fontsize{70}{0}\selectfont
-		\themychapter\\
-	\endgroup
-	\vspace{\spaceafternumber}
+		\newpage
+		\thispagestyle{empty}
+		\vspace*{-2\headsep}
+		\setlength{\parskip}{0cm}
+		\flushright	
+		\begingroup
+			\fontsize{70}{0}\selectfont
+			\themychapter \\
+		\endgroup
+		\vspace{\spaceafternumber}
+		\begingroup
+			\bfseries
+			\Huge
+			#1\\
+		\endgroup
+		\vspace{\spaceaftertitle}
+	\endgroup	
+	\renewcommand{\chaptermark}{\themychapter . #1}
+	\renewcommand{\sectionmark}{\chaptermark}
+	\addcontentsline{toc}{chapter}{\themychapter. #1}
+}
+
+\newcommand{\chapterstar}[1]{
 	\begingroup
-		\bfseries
-		\Huge
-		#1\\
+		\newpage
+		\thispagestyle{empty}
+		\vspace*{-2\headsep}
+		\setlength{\parskip}{0cm}
+		\flushright	
+		\begingroup
+			\fontsize{70}{0}\selectfont
+			\vphantom{1}~\\
+		\endgroup
+		\vspace{\spaceafternumber}
+		\begingroup
+			\bfseries
+			\Huge
+			#1\\
+		\endgroup
+		\vspace{\spaceaftertitle}
 	\endgroup
-	\vspace{\spaceaftertitle}
-\endgroup
-\renewcommand{\chaptermark}{\themychapter . #1}
-\renewcommand{\sectionmark}{\chaptermark}
-\addcontentsline{toc}{chapter}{\themychapter. #1}
+	\renewcommand{\chaptermark}{#1}
+	\renewcommand{\sectionmark}{\chaptermark}
+	\addcontentsline{toc}{chapter}{#1}
 }
 
 \renewcommand{\section}[1]{
