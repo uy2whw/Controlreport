@@ -120,7 +120,7 @@
 	\vspace{0.5\spaceaftertitle}
 \endgroup
 \renewcommand{\sectionmark}{\themysection . #1}
-\addcontentsline{toc}{section}{\sectionmark}
+\addcontentsline{toc}{section}{\quad\sectionmark}
 }
 
 \renewcommand{\subsection}[1]{
@@ -128,11 +128,11 @@
 	\refstepcounter{mysubsection}
 	\setlength{\parindent}{0 cm}
 	\bfseries \Large		
-	\vspace{0.5\helycimelott}
+	\vspace{0.5\spacebeforesectiontitle}
 	\themysubsection. #1
 	\vspace{0.5\spaceaftertitle}
 \endgroup
-\addcontentsline{toc}{subsection}{\themysubsection. #1}
+\addcontentsline{toc}{subsection}{\qquad\themysubsection. #1}
 }
 
 \renewcommand{\subsubsection}[1]{
@@ -140,7 +140,7 @@
 	\refstepcounter{mysubsubsection}
 	\setlength{\parindent}{0 cm}
 	\bfseries \large		
-	\vspace{0.5\helycimelott}
+	\vspace{0.5\spacebeforesectiontitle}
 	\themysubsubsection. #1
 	\vspace{0.5\spaceaftertitle}
 \endgroup
